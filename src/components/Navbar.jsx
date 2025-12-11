@@ -125,9 +125,9 @@ function Navbar() {
         >
           {logoAvailable ? (
             <img
-              src="/1-removebg-preview.png"
+              src="/logo11.png"
               alt="Phuong Cosmetics"
-              className="h-12 w-auto object-contain"
+              className="h-10 sm:h-16 md:h-20 lg:h-24 w-auto object-contain"
               onError={() => setLogoAvailable(false)}
               onLoad={() => setLogoAvailable(true)}
             />
