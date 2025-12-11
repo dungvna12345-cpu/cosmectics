@@ -26,6 +26,7 @@ function Navbar() {
   const catList = categories
   const headerRef = useRef(null)
   const [logoAvailable, setLogoAvailable] = useState(true)
+  const [hoveringHeader, setHoveringHeader] = useState(false)
 
   useEffect(() => {
     if (!open) return
@@ -89,15 +90,20 @@ function Navbar() {
     const x = ((e.clientX - rect.left) / rect.width) * 100
     const y = ((e.clientY - rect.top) / rect.height) * 100
     setGlow({ x, y, visible: true })
+    setHoveringHeader(true)
   }
 
-  const handleMouseLeave = () => setGlow((g) => ({ ...g, visible: false }))
+  const handleMouseLeave = () => {
+    setGlow((g) => ({ ...g, visible: false }))
+    setHoveringHeader(false)
+  }
 
   const headerClasses = useMemo(() => {
     const base = 'fixed top-0 left-0 right-0 z-50 transition-all duration-300'
     const visibility = isVisible ? 'translate-y-0' : '-translate-y-full'
-    if (isScrolled) {
-      return `${base} ${visibility} border-b border-slate-100/70 bg-white/92 text-slate-800 shadow-sm backdrop-blur-md`
+    const activeBg = isScrolled || hoveringHeader
+    if (activeBg) {
+      return `${base} ${visibility} border-b border-slate-100/70 bg-white/95 text-slate-800 shadow-sm backdrop-blur-md`
     }
     return `${base} ${visibility} border-transparent bg-transparent text-white shadow-none backdrop-blur-none`
   }, [isScrolled, isVisible])
