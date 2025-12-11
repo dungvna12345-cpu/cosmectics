@@ -25,6 +25,7 @@ function Navbar() {
   const { summary } = useCart()
   const catList = categories
   const headerRef = useRef(null)
+  const [logoAvailable, setLogoAvailable] = useState(true)
 
   useEffect(() => {
     if (!open) return
@@ -115,19 +116,31 @@ function Navbar() {
           : undefined
       }
     >
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center gap-3 px-6 py-4 sm:px-8">
+      <div className="relative mx-auto fFw-full max-w-7xl flex-col items-center gap-3 px-6 py-4 sm:px-8">
         <NavLink
           to="/"
           className={`group flex flex-col items-center gap-1 text-2xl font-semibold tracking-[0.18em] transition hover:translate-y-[-1px] ${
             isScrolled ? 'text-slate-800' : 'text-white'
           }`}
         >
-          <span className={`text-3xl font-bold tracking-[0.28em] ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
-            PHƯƠNG
-          </span>
-          <span className={`text-base font-semibold tracking-[0.36em] ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
-            COSMETICS
-          </span>
+          {logoAvailable ? (
+            <img
+              src="/1-removebg-preview.png"
+              alt="Phuong Cosmetics"
+              className="h-12 w-auto object-contain"
+              onError={() => setLogoAvailable(false)}
+              onLoad={() => setLogoAvailable(true)}
+            />
+          ) : (
+            <>
+              <span className={`text-3xl font-bold tracking-[0.28em] ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
+                PHƯƠNG
+              </span>
+              <span className={`text-base font-semibold tracking-[0.36em] ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
+                COSMETICS
+              </span>
+            </>
+          )}
         </NavLink>
 
         <nav className="flex flex-wrap items-center justify-center gap-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-700 sm:gap-5">
@@ -180,7 +193,7 @@ function Navbar() {
                 isScrolled ? 'text-slate-700 hover:text-rose-500' : 'text-white hover:text-rose-200'
               }`}
             >
-              Danh mục
+             DANH MỤC
               <span className={`inline-block text-xs transition-transform ${open ? 'rotate-180' : ''}`} aria-hidden>
                 ▾
               </span>

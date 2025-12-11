@@ -20,7 +20,7 @@ function Home() {
   const [activeLetter, setActiveLetter] = useState('S')
   const [hoverProduct, setHoverProduct] = useState(null)
   const [cosmecticsHoveredLetter, setCosmecticsHoveredLetter] = useState(null)
-  const [cosmecticsPopupPos, setCosmecticsPopupPos] = useState({ x: 0, y: 0, rotation: 0 })
+  const [cosmecticsPopupPos, setCosmecticsPopupPos] = useState({ x: 0, y: 0, rotation: 0, above: true })
   const location = useLocation()
 
   useEffect(() => {
@@ -129,8 +129,8 @@ function Home() {
     // Tạo góc nghiêng ngẫu nhiên từ -8 đến 8 độ
     const randomRotation = (Math.random() - 0.5) * 16
     setLetterPopupPos({
-      x: rect.left + rect.width / 2,
-      y: rect.top - 20,
+        x: rect.left + rect.width / 2,
+        y: rect.bottom - 120,
       rotation: randomRotation,
     })
   }
@@ -190,10 +190,19 @@ function Home() {
       setCosmecticsHoveredLetter(letter)
       const rect = e.currentTarget.getBoundingClientRect()
       const randomRotation = (Math.random() - 0.5) * 16
+      // Prefer showing the popup below the hovered letter (closer to it).
+      // If there isn't enough space below, show it above instead.
+      const preferredAboveY = rect.bottom + 10
+      const belowY = rect.bottom + 2
+      const spaceBelow = typeof window !== 'undefined' ? window.innerHeight - rect.bottom : 9999
+      // estimate popup height ~180; if not enough space below, use above when possible
+      const useAbove = spaceBelow < 180 && preferredAboveY > 30
+      const y = useAbove ? Math.max(6, preferredAboveY) : belowY
       setCosmecticsPopupPos({
         x: rect.left + rect.width / 2,
-        y: rect.bottom - 120,
+        y,
         rotation: randomRotation,
+        above: useAbove,
       })
     }
   }
@@ -210,7 +219,7 @@ function Home() {
     <div className="flex flex-col gap-12">
       {/* Full-bleed hero banner */}
       <section
-        className="reveal-on-scroll full-bleed relative isolate -mt-24 sm:-mt-28 mb-8 min-h-screen overflow-hidden bg-slate-900/60"
+        className="reveal-on-scroll full-bleed relative isolate -mt-24 sm:-mt-28 mb-8 min-h-screen overflow-visible bg-slate-900/60"
         onMouseMove={handleHeroMove}
         onMouseLeave={() => setHeroParallax({ x: 50, y: 50 })}
         style={{
@@ -233,8 +242,11 @@ function Home() {
         <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pt-24 pb-14 sm:px-10 sm:pt-28 md:px-16 md:pt-32 lg:px-20">
           <div className="space-y-4 text-white">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-100">Phương Cosmetics</p>
-            <div className="leading-[1.6] relative pb-4">
-              <div className="font-impact uppercase tracking-[0.06em] drop-shadow-[0_10px_35px_rgba(0,0,0,0.35)] text-left text-[24vw] sm:text-[20vw] md:text-[18vw] lg:text-[16vw] -ml-16 sm:-ml-32 md:-ml-44 lg:-ml-48 whitespace-nowrap">
+              <div className="leading-[1.6] relative pb-4">
+                <div
+                  className="font-impact uppercase tracking-[0.02em] drop-shadow-[0_10px_35px_rgba(0,0,0,0.35)] text-left text-[24vw] sm:text-[20vw] md:text-[18vw] lg:text-[16vw] -ml-8 sm:-ml-8 md:-ml-16 lg:-ml-20 whitespace-nowrap"
+                  style={{ transform: 'translateX(-3vw)' }}
+                >
                 {'COSMECTICS'.split('').map((letter, idx) => (
                   <span
                     key={`${letter}-${idx}`}
@@ -243,7 +255,7 @@ function Home() {
                     onMouseLeave={handleCosmecticsLetterLeave}
                   >
                     {letter}
-                    {idx < 'COSMECTICS'.length - 1 && <span className="mx-[0.06em]"> </span>}
+                    {idx < 'COSMECTICS'.length - 1 && <span className="mx-[0.02em]"> </span>}
                   </span>
                 ))}
               </div>
@@ -254,9 +266,11 @@ function Home() {
                   style={{
                     left: `${cosmecticsPopupPos.x}px`,
                     top: `${cosmecticsPopupPos.y}px`,
-                    transform: `translate(-50%, 0) rotate(${cosmecticsPopupPos.rotation}deg)`,
+                    transform: cosmecticsPopupPos.above
+                      ? `translate(-50%, -75%) rotate(${cosmecticsPopupPos.rotation}deg)`
+                      : `translate(-50%, -8%) rotate(${cosmecticsPopupPos.rotation}deg)`,
                     marginTop: '0px',
-                    transformOrigin: 'center top',
+                    transformOrigin: cosmecticsPopupPos.above ? 'center bottom' : 'center top',
                   }}
                 >
                   <div className="mb-3 h-40 w-full rounded-xl bg-slate-50 flex items-center justify-center overflow-hidden">
