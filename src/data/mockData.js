@@ -38,41 +38,6 @@ const tags = [
   'oily skin',
 ]
 
-const blogTopics = [
-  'Skincare tối giản',
-  'Trang điểm daily',
-  'Tóc khỏe từ gốc',
-  'Thơm lâu cả ngày',
-  'Healthy lifestyle',
-  'Du lịch và skincare',
-  'Thực đơn lành mạnh',
-  'Ngủ đủ & phục hồi',
-  'Workout nhẹ nhàng',
-  'Giảm stress tại nhà',
-]
-
-const authors = ['Lan Anh', 'Mai Trâm', 'Quỳnh Chi', 'Bảo Ngọc', 'Minh Hà', 'Diệu Linh']
-const blogCategories = ['Lifestyle', 'Skincare', 'Makeup', 'Haircare', 'Wellness']
-
-const productAdjectives = [
-  'Dewy Glow',
-  'Velvet Touch',
-  'Pure Calm',
-  'Fresh Cloud',
-  'Radiant Aura',
-  'Botanic Silk',
-  'Ocean Mist',
-  'Coco Bliss',
-  'Amber Bloom',
-  'Citrus Clean',
-]
-
-const heroIngredients = ['niacinamide', 'peptide', 'HA 4D', 'ceramide', 'vitamin C', 'PHA', 'AHA', 'probiotic']
-const scentNotes = ['hoa nhài', 'cam bergamot', 'gỗ đàn hương', 'trà trắng', 'vải', 'dừa non', 'hoa hồng', 'trà xanh']
-
-// Generate fewer mock blog posts for UI testing — keep total 10 after adding routines
-const BLOG_COUNT = 8
-
 const products = [
   {
     id: 'product-1',
@@ -286,73 +251,80 @@ const products = [
   },
 ]
 
-const blogPosts = Array.from({ length: BLOG_COUNT }, (_, i) => {
-  const category = blogCategories[i % blogCategories.length]
-  const topic = blogTopics[i % blogTopics.length]
-  const author = authors[i % authors.length]
-  const date = new Date(Date.UTC(2024, 7, 1 + i)).toISOString()
-
-  return {
-    id: `blog-${i + 1}`,
-    title: `${topic}: tips #${(i % 9) + 1}`,
-    category,
-    author,
-    summary:
-      'Checklist thực tế, dễ áp dụng hằng ngày: sản phẩm gợi ý, thời gian, mẹo tối ưu ngân sách và cảm hứng sống tối giản.',
-    readTime: 4 + (i % 6),
-    date,
-    tags: [tags[(i + 2) % tags.length], tags[(i + 4) % tags.length], 'lifestyle'],
-    cover: `https://picsum.photos/seed/blog-${i + 1}/640/360`,
-  }
-})
-
-// Thêm bài viết chuyên sâu cho routine sáng/tối
-blogPosts.unshift(
+// 3 bài viết chuyên sâu (Long-form content), tối ưu SEO
+const blogPosts = [
   {
-    id: 'blog-routine-morning',
-    title: 'Morning Glow: 5 bước sạch - ẩm - chống nắng',
+    id: 'blog-seo-1',
+    title: 'Giải Mã Quy Trình Skincare Khoa Học: Tại Sao Da Bạn Mãi Không Đẹp?',
     category: 'Skincare',
     author: 'Lan Anh',
     summary:
-      'Routine sáng 5 bước: làm sạch dịu nhẹ, toner cấp ẩm, serum sáng da, kem dưỡng mỏng, chống nắng SPF. Phù hợp da nhạy cảm, tối giản dưới 10 phút.',
-    readTime: 5,
-    date: new Date(Date.UTC(2024, 8, 20)).toISOString(),
-    tags: ['morning routine', 'hydrating', 'SPF'],
+      'Bạn đã chi hàng triệu đồng cho mỹ phẩm nhưng da vẫn sần sùi, nổi mụn? Bài viết này sẽ phân tích sâu về cơ chế sinh học của da, sai lầm phổ biến trong việc layer (xếp lớp) sản phẩm và cung cấp một lộ trình chuẩn y khoa (Medical Grade) giúp phục hồi hàng rào bảo vệ da chỉ trong 28 ngày.',
+    readTime: 12,
+    date: '2024-09-20T08:00:00.000Z',
+    tags: ['skincare science', 'skin barrier', 'acne treatment', 'expert guide'],
     cover: 'https://i.pinimg.com/1200x/24/51/27/2451277bfcba967b2af87eeefa438d19.jpg',
     body: [
-      'Sáng là lúc da cần làm sạch lớp dầu mỏng, bụi mịn và vẫn giữ lại độ ẩm tự nhiên. Ưu tiên kết cấu nhẹ, ít hương liệu, rửa nhanh dưới 60 giây.',
-      'Sau làm sạch, cấp ẩm tức thì với toner dạng nước, vỗ nhẹ 1-2 lớp. Serum sáng da nên chọn niacinamide hoặc vitamin C dịu để hỗ trợ đều màu, không châm chích.',
-      'Kem dưỡng mỏng để khóa ẩm, tránh bí. Bước cuối là chống nắng SPF 30-50, thoa đủ lượng (2 ngón tay) và đừng quên cổ, gáy.',
+      '1. Hiểu đúng về Làm sạch kép (Double Cleansing) - Nền tảng của làn da pha lê. Rất nhiều người lầm tưởng rằng chỉ cần sữa rửa mặt là đủ. Tuy nhiên, kem chống nắng và bã nhờn là những thành phần gốc dầu, và theo nguyên tắc hóa học "dầu hòa tan dầu", nước không thể làm sạch chúng triệt để. Việc tích tụ dầu thừa lâu ngày chính là nguyên nhân số 1 gây ra mụn ẩn và lỗ chân lông to. Hãy bắt đầu routine tối với dầu/sáp tẩy trang nhũ hóa kỹ trong 2 phút, sau đó dùng sữa rửa mặt pH 5.5 để bảo toàn màng lipid tự nhiên.',
+      '2. Toner và bước đệm thủy hợp (Hydration Layering). Đừng xem thường Toner. Một loại toner chứa BHA nhẹ (Salicylic Acid) sẽ giúp làm sạch sâu tận đáy lỗ chân lông, trong khi toner chứa B5 (Panthenol) hay HA lại đóng vai trò như một miếng bọt biển hút nước, chuẩn bị môi trường ẩm lý tưởng để serum thẩm thấu. Nếu bôi serum lên da khô, hiệu quả có thể giảm tới 50%.',
+      '3. Nghệ thuật chọn Serum (Treatment). Đây là lúc bạn cần lắng nghe "tiếng nói" của làn da. Nếu da xỉn màu, thâm mụn, hãy tìm đến Vitamin C (L-Ascorbic Acid) hoặc Niacinamide nồng độ 10%. Nếu vấn đề là lão hóa và nếp nhăn, Peptide và Retinol là "cặp bài trùng" không thể thiếu. Lưu ý quan trọng: Không mix Vitamin C tươi chung với Retinol/AHA/BHA trong cùng một buổi để tránh kích ứng (breakout).',
+      '4. Khóa ẩm (Occlusives) - Chiếc chìa khóa cuối cùng. Serum rất dễ bay hơi nếu không có lớp màng khóa lại. Kem dưỡng ẩm không chỉ cung cấp độ ẩm mà còn chứa các chất khóa ẩm (như Dimethicone, Squalane) tạo nên một lớp màng nhân tạo, ngăn chặn hiện tượng mất nước qua da (TEWL - Transepidermal Water Loss) khi bạn ngủ điều hòa cả đêm.',
+      '5. Kem chống nắng (Sun Protection) - Vắc-xin cho làn da. Mọi nỗ lực skincare trị giá hàng triệu đồng sẽ đổ sông đổ bể nếu bạn bỏ qua bước này. Tia UVA xuyên qua cửa kính, gây đứt gãy Collagen âm thầm mà bạn không thấy ngay được. Hãy chọn loại quang phổ rộng (Broad Spectrum), SPF 50+ và PA++++, bôi lại sau mỗi 4 tiếng làm việc văn phòng.',
     ],
     tips: [
-      'Da dầu: chọn cleanser pH cân bằng, serum niacinamide 5%, kem gel mỏng.',
-      'Da khô/nhạy cảm: cleanser sữa, toner không cồn, serum HA + panthenol, kem dưỡng hơi đặc hơn.',
-      'Re-apply chống nắng sau 2-3 giờ nếu ở ngoài trời.',
+      'Nguyên tắc 3 giây: Thoa toner ngay trong 3 giây sau khi rửa mặt để tận dụng độ ẩm dư.',
+      'Test dị ứng: Luôn thử sản phẩm mới ở vùng xương hàm trước khi bôi toàn mặt.',
+      'Kiên nhẫn: Chu kỳ tái tạo da là 28-35 ngày, đừng mong chờ phép màu chỉ sau 1 đêm.',
     ],
   },
   {
-    id: 'blog-routine-night',
-    title: 'Slow Evening: phục hồi ban đêm 5 bước',
+    id: 'blog-seo-2',
+    title: 'Retinol & Treament: Bản Đồ Chống Lão Hóa Toàn Diện Cho Tuổi 25+',
     category: 'Skincare',
-    author: 'Mai Trâm',
+    author: 'Minh Hà',
     summary:
-      'Tẩy trang, double cleanse, toner cân bằng, serum treatment nhẹ, kem dưỡng phục hồi và mặt nạ ngủ 2-3 lần/tuần. Nhấn mạnh hàng rào da và độ ẩm.',
-    readTime: 6,
-    date: new Date(Date.UTC(2024, 8, 22)).toISOString(),
-    tags: ['night routine', 'repair', 'minimal'],
+      'Chống lão hóa không phải là cuộc đua tốc độ, mà là sự kiên trì. Bài viết đi sâu vào phân tích các hoạt chất vàng như Retinol, Tretinoin, Peptide đồng và Vitamin C. Hướng dẫn cách xây dựng routine "Sandwich", giảm thiểu kích ứng và bong tróc cho người mới bắt đầu treatment hạng nặng.',
+    readTime: 15,
+    date: '2024-09-22T09:30:00.000Z',
+    tags: ['retinol', 'anti-aging', 'premium care', 'dermatology'],
     cover: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80',
     body: [
-      'Ban đêm ưu tiên phục hồi. Bắt đầu với tẩy trang dầu/balm, sau đó sữa rửa dịu để sạch mà không khô.',
-      'Toner cân bằng giúp giảm rát sau khi rửa mặt. Serum treatment nên ở mức nhẹ: peptide, HA, hoặc retinol nồng độ thấp nếu da đã quen.',
-      'Kem dưỡng phục hồi chứa ceramide/centella để củng cố hàng rào. Mặt nạ ngủ 2-3 lần/tuần cho da thiếu ẩm hoặc sau ngày dài đi nắng.',
+      'Tại sao mốc 25 tuổi lại quan trọng? Từ độ tuổi này, khả năng sản sinh Collagen và Elastin của cơ thể giảm đi khoảng 1-1.5% mỗi năm. Cấu trúc nền của da bắt đầu lỏng lẻo, dẫn đến nếp nhăn tĩnh ở đuôi mắt và rãnh cười. Để đảo ngược quá trình này, dưỡng ẩm thôi là chưa đủ, bạn cần những "chất xúc tác" mạnh mẽ hơn.',
+      'Retinol - Tiêu chuẩn vàng trong da liễu. Là dẫn xuất của Vitamin A, Retinol hoạt động bằng cách kích thích các tế bào da luân chuyển nhanh hơn (cell turnover), ép da sản sinh tế bào mới và tăng mật độ Collagen ở trung bì. Tuy nhiên, "dục tốc bất đạt". Khi mới bắt đầu, hãy chọn nồng độ thấp (0.1% - 0.3%) và tần suất 2 lần/tuần.',
+      'Phương pháp Sandwich - Bí kíp cho da nhạy cảm. Để giảm thiểu tình trạng đỏ rát, bong tróc khi dùng Retinol, hãy áp dụng quy tắc: 1 lớp kem dưỡng mỏng -> Đợi 10 phút -> Bôi Retinol -> Đợi 10 phút -> Bôi 1 lớp kem dưỡng phục hồi dày (chứa Ceramide/B5). Lớp kem dưỡng đầu tiên đóng vai trò như bộ lọc (buffer) giúp Retinol thấm chậm và êm dịu hơn.',
+      'Vitamin C và Peptide - Những trợ thủ đắc lực. Nếu Retinol dùng buổi tối, thì Vitamin C là "vệ sĩ" hoàn hảo cho buổi sáng. Khi kết hợp với kem chống nắng, Vitamin C giúp trung hòa các gốc tự do mà tia UV sinh ra, tăng cường khả năng bảo vệ da gấp nhiều lần. Peptide lại đóng vai trò như "người đưa tin", phát tín hiệu để da tự sửa chữa các tổn thương.',
+      'Lối sống (Lifestyle) ảnh hưởng 50% kết quả. Đường (Sugar) là kẻ thù số 1 gây ra hiện tượng Glycation (đường hóa), làm đứt gãy sợi Collagen, khiến da vàng vọt và chảy xệ. Một chế độ ăn giảm đường, ngủ đủ 8 tiếng và tập thể dục điều độ sẽ giúp hormone tăng trưởng hoạt động tốt, hỗ trợ quá trình trẻ hóa da tự nhiên.',
     ],
     tips: [
-      'Nếu dùng retinol: áp dụng cách ngày, luôn có kem dưỡng phục hồi đi kèm.',
-      'Da dễ bí: chọn kem gel phục hồi thay vì cream đặc.',
-      'Ngày mệt không muốn nhiều bước: tẩy trang — rửa mặt — kem dưỡng phục hồi dày hơn.',
+      'Tuyệt đối chống nắng kỹ khi đang dùng Retinol vì da sẽ nhạy cảm hơn với ánh sáng.',
+      'Không dùng Retinol cho phụ nữ mang thai hoặc đang cho con bú.',
+      'Duy trì ít nhất 6 tháng để thấy nếp nhăn nông được cải thiện.',
     ],
   },
-)
+  {
+    id: 'blog-seo-3',
+    title: 'Giải Mã Xu Hướng "Clean Girl Makeup": Đỉnh Cao Của Sự Tự Nhiên',
+    category: 'Makeup',
+    author: 'Mai Trâm',
+    summary:
+      'Tạm biệt lớp nền dày cộp (cakey), xu hướng hiện đại tôn vinh làn da thật với vẻ đẹp "effortless" (không cố gắng). Bài viết hướng dẫn kỹ thuật đánh nền bằng spatula, cách chọn má hồng kem và định hình lông mày phẩy sợi để đạt được giao diện "Clean Girl" thanh lịch, sang trọng.',
+    readTime: 10,
+    date: '2024-09-25T14:15:00.000Z',
+    tags: ['makeup trend', 'glass skin', 'natural beauty', 'technique'],
+    cover: 'https://i.pinimg.com/1200x/ee/a6/73/eea67329433ffe2af864e0ee86540315.jpg',
+    body: [
+      'Skin Prep - Chìa khóa của lớp nền thủy tinh (Glass Skin). Một sai lầm phổ biến là đánh nền ngay trên da khô hoặc da quá nhờn. Quy tắc bất di bất dịch của Clean Girl Makeup là da phải đủ ẩm nhưng không được trơn trượt. Hãy dùng một loại kem lót (primer) bắt sáng hoặc đơn giản là kem dưỡng ẩm dạng gel, massage kỹ cho đến khi da có độ dính nhẹ (tacky) để kem nền bám chặt hơn.',
+      'Kỹ thuật đánh nền mỏng tang. Hãy quên việc chấm kem nền 5 điểm rồi quệt mạnh. Xu hướng mới là dùng thanh trộn (spatula) dàn kem nền thật mỏng ra tay, sau đó vuốt nhẹ lên má tạo thành lớp màng filter trong suốt. Dùng bông mút ẩm dặm vuông góc liên tục để ép kem tiệp vào da. Lớp nền càng mỏng, độ tự nhiên càng cao và càng ít bị đọng rãnh nhăn cuối ngày.',
+      'Che khuyết điểm có chọn lọc (Micro-concealing). Thay vì vẽ tam giác lớn dưới mắt, hãy chỉ dùng cọ nhỏ chấm vào đúng điểm tối nhất của quầng thâm và những nốt mụn đỏ. Giữ lại những nốt tàn nhang hoặc nốt ruồi duyên dáng cũng là cách để lớp makeup trông "thật" hơn.',
+      'Má hồng và Highlight - Hiệu ứng ửng hồng nội sinh. Ưu tiên má hồng dạng kem hoặc lỏng (liquid blush) màu cam đào hoặc hồng đất. Tán má hồng cao lên gần đuôi mắt để tạo hiệu ứng nâng cơ mặt (lifting effect). Thêm một chút highlight dạng thỏi vào gò má, sống mũi và nhân trung để khuôn mặt bắt sáng tự nhiên như đang tỏa sáng từ bên trong.',
+      'Chân mày và Đôi môi. Chải lông mày dựng (brow lamination) bằng gel trong suốt để tạo độ tơi và phóng khoáng, không cần tô khung quá sắc nét. Kết thúc bằng son bóng (lip gloss) hoặc son dưỡng có màu (tinted balm) để đôi môi căng mọng, quyến rũ (MLBB - My Lips But Better).',
+    ],
+    tips: [
+      'Xịt khóa makeup (Setting Spray) ở giữa các bước (sau kem lót, sau nền, sau phấn phủ) để lớp nền "bất tử".',
+      'Nếu da dầu, chỉ phủ phấn bột (loose powder) vào vùng chữ T, để lại vùng gò má bóng khỏe.',
+      'Vệ sinh dụng cụ trang điểm hàng tuần để tránh vi khuẩn gây mụn.',
+    ],
+  },
+]
 
 export { blogPosts, brands, categories, products, tags }
-
