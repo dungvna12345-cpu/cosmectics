@@ -55,7 +55,7 @@ body {
   z-index: 0;
 }
 
-body::before {
+body.home-page::before {
   content: "";
   position: absolute;
   top: 0;
@@ -74,7 +74,7 @@ body::before {
  z-index: 1;
 }
 
-body::after {
+body.home-page::after {
   content: "";
   position: absolute;
   left: 0;

@@ -35,7 +35,7 @@ function Footer() {
           <div className="flex gap-3 text-sm font-semibold text-rose-600">
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rose-700">Instagram</a>
             <a href="https://www.facebook.com/quynhphuong.kieuthi.16" target="_blank" rel="noopener noreferrer" className="hover:text-rose-700">Facebook</a>
-            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rose-700">TikTok</a>
+            <a href="https://www.tiktok.com/@04kphuongphuba27" target="_blank" rel="noopener noreferrer" className="hover:text-rose-700">TikTok</a>
           </div>
         </div>
       </div>

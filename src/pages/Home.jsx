@@ -128,6 +128,12 @@ function Home() {
     }
   }, [])
 
+  // Add a body class so decorative backgrounds only show on home
+  useEffect(() => {
+    document.body.classList.add('home-page')
+    return () => document.body.classList.remove('home-page')
+  }, [])
+
   useEffect(() => {
     // Reveal-on-scroll effect removed: elements show by default now.
     return undefined
@@ -313,7 +319,7 @@ function Home() {
     <div className="flex flex-col gap-12">
       {/* Full-bleed hero banner */}
       <section
-        className="reveal-on-scroll full-bleed relative isolate -mt-24 sm:-mt-28 mb-8 min-h-screen overflow-visible bg-slate-900/60"
+        className="reveal-on-scroll full-bleed relative isolate -mt-24 sm:-mt-28 mb-8 min-h-screen overflow-hidden bg-slate-900/60"
         onMouseMove={handleHeroMove}
         onMouseLeave={() => setHeroParallax({ x: 50, y: 50 })}
         style={{
@@ -326,7 +332,7 @@ function Home() {
         {/* Overlay gradient ở trên để chữ header dễ đọc */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-900/40 via-slate-900/20 to-transparent" />
         <div
-          className="pointer-events-none absolute inset-0 opacity-70 blur-3xl transition-transform duration-300"
+          className="pointer-events-none absolute inset-0 opacity-50 blur-xl transition-transform duration-300"
           style={{
             background:
               'radial-gradient(circle at 20% 20%, rgba(255,255,255,0.18), transparent 35%), radial-gradient(circle at 75% 60%, rgba(125,182,255,0.28), transparent 40%)',
