@@ -342,8 +342,7 @@ function Home() {
             {/* preheading removed */}
               <div className="leading-[1.6] relative pb-4">
                 <div
-                  className="font-impact uppercase tracking-[0.02em] drop-shadow-[0_10px_35px_rgba(0,0,0,0.35)] text-left text-[24vw] sm:text-[20vw] md:text-[18vw] lg:text-[16vw] -ml-8 sm:-ml-8 md:-ml-16 lg:-ml-20 whitespace-nowrap"
-                  style={{ transform: 'translateX(-3vw)' }}
+                  className="font-impact uppercase tracking-[0.02em] drop-shadow-[0_10px_35px_rgba(0,0,0,0.35)] text-left hero-title"
                 >
                 {'COSMECTICS'.split('').map((letter, idx) => (
                   <span
