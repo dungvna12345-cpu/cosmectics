@@ -42,7 +42,6 @@ function Footer() {
       <div className="border-t border-slate-100 bg-white/60">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-4 text-xs text-slate-500 sm:flex-row">
           <span>© 2025 Phương Cosmectics. Demo UI for clean beauty & lifestyle.</span>
-          <span>Made with ❤️ + Tailwind + React.</span>
         </div>
       </div>
     </footer>

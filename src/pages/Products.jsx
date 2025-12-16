@@ -77,6 +77,12 @@ function Products() {
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+         <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+
           <p className="text-sm font-semibold text-rose-500">Sản phẩm</p>
           
         </div>

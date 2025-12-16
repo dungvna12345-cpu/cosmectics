@@ -27,6 +27,12 @@ function Cart() {
 
 
         <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+           <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+         <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+
         <h1 className="text-2xl font-bold text-slate-900">Giỏ hàng</h1>
         <p className="mt-3 text-slate-600">Chưa có sản phẩm nào.</p>
         <Link to="/products" className="mt-4 inline-flex rounded-xl bg-rose-500 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-600">
@@ -37,8 +43,12 @@ function Cart() {
   }
 
   return (
+    
     <div className="space-y-4 rounded-3xl bg-white/80 p-6 shadow-lg ring-1 ring-rose-100">
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
       <div className="flex items-center justify-between">
+        
         <h1 className="text-2xl font-bold text-slate-900">Giỏ hàng</h1>
         <div className="flex items-center gap-3">
           {success && (
