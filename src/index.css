@@ -9,6 +9,20 @@
   }
 }
 
+/* Cross-browser / device fixes */
+*,*::before,*::after{box-sizing:border-box}
+html,body{ -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+img{max-width:100%;height:auto;display:block}
+a{ -webkit-tap-highlight-color: transparent; }
+button,input,select,textarea{ -webkit-appearance:none; appearance:none }
+button, [role="button"] { touch-action: manipulation; }
+/* smooth scrolling on iOS for scrollable elements */
+*{ -webkit-overflow-scrolling: touch }
+
+/* Visible focus for keyboard users */
+:focus{outline:none}
+:focus-visible{outline:2px solid #4f93e6;outline-offset:2px}
+
 @keyframes popupAppear {
   0% {
     opacity: 0;
@@ -78,24 +92,17 @@ a {
  color: inherit;
 }
 
-/* Scroll reveal & tilt effects */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 450ms ease, transform 450ms ease;
-}
 
-.reveal-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Scroll reveal disabled globally: show elements immediately without animation */
+.reveal-on-scroll {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 /* Make reveal animations non-blocking on small screens (improve mobile visibility) */
 @media (max-width: 640px) {
-  .reveal-on-scroll {
-    opacity: 1 !important;
-    transform: none !important;
-  }
+  /* no-op: handled by global rule */
 }
 
 .tilt-card {

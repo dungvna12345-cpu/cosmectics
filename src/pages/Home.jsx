@@ -129,19 +129,8 @@ function Home() {
   }, [])
 
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll('.reveal-on-scroll'))
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-          }
-        })
-      },
-      { threshold: 0.2 },
-    )
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+    // Reveal-on-scroll effect removed: elements show by default now.
+    return undefined
   }, [])
 
   useEffect(() => {
