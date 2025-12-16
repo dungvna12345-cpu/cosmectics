@@ -64,9 +64,7 @@ function Blog() {
             placeholder="Gõ từ khóa lifestyle, skincare..."
             className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:border-rose-400 focus:outline-none"
           />
-          <p className="text-xs text-slate-500">
-            Bộ dữ liệu 80 bài: skincare routine, trang điểm, life balance, food, sleep, du lịch, haircare.
-          </p>
+          
         </div>
         <div className="md:col-span-2">
           <div className="mb-3 text-sm text-slate-600">{filteredBlogs.length} bài viết phù hợp</div>
