@@ -11,10 +11,22 @@ function Cart() {
     setTimeout(() => setSuccess(false), 2000)
     clear()
   }
+ 
 
+
+
+
+
+
+
+
+  
   if (items.length === 0) {
     return (
       <div className="rounded-3xl bg-white/80 p-6 text-center shadow-lg ring-1 ring-rose-100">
+
+
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
         <h1 className="text-2xl font-bold text-slate-900">Giỏ hàng</h1>
         <p className="mt-3 text-slate-600">Chưa có sản phẩm nào.</p>
         <Link to="/products" className="mt-4 inline-flex rounded-xl bg-rose-500 px-4 py-2 text-sm font-semibold text-white hover:bg-rose-600">

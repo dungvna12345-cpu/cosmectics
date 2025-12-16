@@ -137,16 +137,7 @@ function Navbar() {
               onError={() => setLogoAvailable(false)}
               onLoad={() => setLogoAvailable(true)}
             />
-          ) : (
-            <>
-              <span className={`text-3xl font-bold tracking-[0.28em] ${isScrolled ? 'text-slate-900' : 'text-white'}`}>
-                PHƯƠNG
-              </span>
-              <span className={`text-base font-semibold tracking-[0.36em] ${isScrolled ? 'text-slate-600' : 'text-white/80'}`}>
-                COSMETICS
-              </span>
-            </>
-          )}
+          ) : null}
         </NavLink>
 
         <nav className="flex flex-wrap items-center justify-center gap-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-slate-700 sm:gap-5">

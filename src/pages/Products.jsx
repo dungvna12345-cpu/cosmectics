@@ -78,7 +78,7 @@ function Products() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-rose-500">Sản phẩm</p>
-          <h1 className="text-3xl font-bold text-slate-900">Danh sách + bộ lọc</h1>
+          
         </div>
         <div className="flex flex-wrap gap-3">
           <select
