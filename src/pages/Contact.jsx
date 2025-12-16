@@ -34,7 +34,8 @@ function Contact() {
 
   return (
     <section ref={rootRef} className="reveal-on-scroll mx-auto max-w-6xl space-y-6 rounded-3xl bg-white/85 p-6 shadow-lg ring-1 ring-rose-100">
-      <div>
+      <div>        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
+        <h1 className="text-2xl font-bold text-slate-900">ㅤ</h1>
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-rose-500">Liên hệ</p>
         <h1 className="mt-2 text-3xl font-bold text-slate-900">Kết nối với Phương Cosmetics</h1>
         <p className="mt-2 text-slate-600">Gửi câu hỏi, hợp tác hoặc góp ý. Chúng tôi phản hồi trong 1-2 ngày làm việc.</p>
