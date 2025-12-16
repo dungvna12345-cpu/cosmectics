@@ -528,12 +528,12 @@ function Home() {
           <div className="grid gap-2 text-sm text-slate-700 sm:grid-cols-2">
             <div className="hover-lift rounded-2xl bg-rose-50 px-4 py-3">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-rose-500">Sản phẩm</p>
-              <p className="font-semibold text-slate-900">10 món L’Oréal Paris</p>
+              <p className="font-semibold text-slate-900">15 món L’Oréal Paris</p>
               <p className="text-xs text-slate-500">Serum, kem dưỡng, nền, son, mascara, haircare</p>
             </div>
             <div className="hover-lift rounded-2xl bg-cyan-50 px-4 py-3">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-600">Blog</p>
-              <p className="font-semibold text-slate-900">80 bài viết</p>
+              <p className="font-semibold text-slate-900">3 bài viết</p>
               <p className="text-xs text-slate-500">Routine sáng/tối, brand story, lifestyle</p>
             </div>
           </div>
