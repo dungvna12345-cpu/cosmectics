@@ -106,7 +106,7 @@ function Contact() {
             <h3 className="text-lg font-semibold text-rose-600">Thông tin</h3>
             <div className="space-y-2 text-sm">
               <p>Hotline: <a href="tel:0901234567" className="font-medium text-rose-600">0901 234 567</a></p>
-              <p>Email: <a href="mailto:hello@phuongcosmetics.vn" className="font-medium text-rose-600">hello@phuongcosmetics.vn</a></p>
+              <p>Email: <a href="mailto:hello@phuongcosmetics.vn" className="font-medium text-rose-600">quynhphuong11a8@gmail.com</a></p>
               <p>Giờ làm việc: 9:00 - 18:00 (T2 - T6)</p>
               <p>Địa chỉ: 123 Đường Skincare, Quận Beauty, TP.HCM</p>
             </div>
