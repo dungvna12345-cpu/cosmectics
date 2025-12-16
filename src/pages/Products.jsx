@@ -106,7 +106,7 @@ function Products() {
       </div>
 
       <div className="grid gap-4 rounded-2xl bg-slate-50/80 p-4 md:grid-cols-4">
-        <div className="space-y-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+        <div className="space-y-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-100 md:order-1 order-2">
           <p className="text-sm font-semibold text-slate-900">Bộ lọc</p>
           <input
             value={search}
@@ -161,7 +161,7 @@ function Products() {
           </div>
         </div>
 
-        <div className="md:col-span-3">
+        <div className="md:col-span-3 md:order-2 order-1">
           <div className="mb-4 flex items-center justify-between text-sm text-slate-600">
             <span>{filteredProducts.length} sản phẩm phù hợp</span>
             <span>Dữ liệu mock {products.length} sản phẩm để test UI</span>
